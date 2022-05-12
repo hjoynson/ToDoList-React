@@ -6,6 +6,10 @@ import './App.css';
 function App() {
   const [todos, setTodos] = React.useState([])
   const [todo, setTodo] = React.useState("")
+  const [todoEditing, setTodoEditing] = React.useState(null)
+  const [editingText, setEditingText] = React.useState("")
+
+
 
   function handleSubmit(e) {
    e.preventDefault() 
@@ -40,7 +44,7 @@ function toggleComplete(id) {
     return todo
   }
 
-setTodos(updated)
+setTodos(updatedTodos)
 }
   return (
     <div className="App">
@@ -59,13 +63,27 @@ setTodos(updated)
       {/* Display todos to the screen */}
 
       {todos.map((todo) => <div key={todo.id}>
-        <div>{todo.text}</div>
 
+        {/* Conditional Rendering */}
+
+      {todoEditing == todo.id ?
+      (<input type="text" onChange={(e) => setEditingText(e.target.value)}
+      value={editingText}
+      /> ) : (<div>{todo.text}</div>)}
+      
+
+          <input type="text" onChange={(e) => setEditingText(e.target.value)} value={editingText}/>
         {/* Delete to do  */}
 
         <button onClick={() => deleteToDo(todo.id)}>Delete</button>
 
-        <input type="checkbox" onChange={() => toggleComplet(todo.id)}/>
+        <input type="checkbox" onChange={() => toggleComplete(todo.id)}
+        checked={todo.completed}/>
+
+        {/* Editing to do functionality */}
+
+        <button onClick={() => setTodoEditing(todo.id)}>Edit To Do</button>
+
 
     </div>)}
     </div>
