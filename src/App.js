@@ -31,6 +31,17 @@ const updatedTodos = [...todos].filter((todo) => todo.id !== id)
 setTodos(updatedTodos)
 }
 
+
+function toggleComplete(id) {
+  const updatedTodos = [...todos].map((todo)) ; {
+    if (todo.id == id) {
+      todo.completed = !todo.completed
+    }
+    return todo
+  }
+
+setTodos(updated)
+}
   return (
     <div className="App">
 
