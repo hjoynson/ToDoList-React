@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 // Adding basics hooks 
@@ -25,6 +24,13 @@ setTodo("")
 
   }
 
+  // Filter = true value boolean it will include element in Array, false value wont be returned
+function deleteToDo(id) {
+const updatedTodos = [...todos].filter((todo) => todo.id !== id)
+
+setTodos(updatedTodos)
+}
+
   return (
     <div className="App">
 
@@ -41,8 +47,16 @@ setTodo("")
 
       {/* Display todos to the screen */}
 
-    
-      {todos.map((todo) => <div>{todo.text}</div>)}
+      {todos.map((todo) => <div key={todo.id}>
+        <div>{todo.text}</div>
+
+        {/* Delete to do  */}
+
+        <button onClick={() => deleteToDo(todo.id)}>Delete</button>
+
+        <input type="checkbox" onChange={() => toggleComplet(todo.id)}/>
+
+    </div>)}
     </div>
   );
 }
