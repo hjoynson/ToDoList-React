@@ -67,10 +67,14 @@ setTodos(updatedTodos)
         {/* Conditional Rendering */}
 
       {todoEditing == todo.id ?
-      (<input type="text" onChange={(e) => setEditingText(e.target.value)}
+      (<input
+        type="text" 
+        onChange={(e) => setEditingText(e.target.value)}
       value={editingText}
-      /> ) : (<div>{todo.text}</div>)}
-      
+      />) 
+      : 
+      (<div>{todo.text}</div>)}
+
 
           <input type="text" onChange={(e) => setEditingText(e.target.value)} value={editingText}/>
         {/* Delete to do  */}
