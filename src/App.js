@@ -66,12 +66,12 @@ setTodos(updatedTodos)
 
         {/* Conditional Rendering */}
 
-      {todoEditing == todo.id ?
+      {todoEditing == todo.id ?  
       (<input
         type="text" 
         onChange={(e) => setEditingText(e.target.value)}
       value={editingText}
-      />) 
+      />)
       : 
       (<div>{todo.text}</div>)}
 
@@ -84,10 +84,10 @@ setTodos(updatedTodos)
         <input type="checkbox" onChange={() => toggleComplete(todo.id)}
         checked={todo.completed}/>
 
-        {/* Editing to do functionality */}
+        {/* Editing to do functionality Buttons */}
 
         <button onClick={() => setTodoEditing(todo.id)}>Edit To Do</button>
-
+        <button onClick={() => editTodo(todo.id)}>Submit Edits</button>
 
     </div>)}
     </div>
