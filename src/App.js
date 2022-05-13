@@ -71,7 +71,7 @@ function editTodo(id){
         {/* Value of input is whatever the todo value is */}
 
           <input type=" text" onChange={(e) => setTodo(e.target.value)} value={todo}/>
-            <button type="submit">add Todo</button>
+            <button type="submit">ADD TO-DO</button>
       </form>
 
 
@@ -107,7 +107,7 @@ function editTodo(id){
         {todoEditing == todo.id ? (<button onClick={() => editTodo(todo.id)}
         >Submit Edits</button>) : (
         <button onClick={() => setTodoEditing(todo.id)}
-        >Edit Todo</button>)}
+        >Edit To-Do</button>)}
 
     </div>)}
     </div>
