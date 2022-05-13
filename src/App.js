@@ -37,12 +37,10 @@ setTodos(updatedTodos)
 
 
 function toggleComplete(id) {
-  const updatedTodos = [...todos].map((todo)) ; {
-    if (todo.id == id) {
-      todo.completed = !todo.completed
-    }
-    return todo
-  }
+  let updatedTodos = [...todos]
+  updatedTodos[id].completed = !updatedTodos[id].completed;
+
+
 
 setTodos(updatedTodos)
 }
@@ -79,26 +77,29 @@ function editTodo(id){
 
       {/* Display todos to the screen */}
 
-      {todos.map((todo) => <div key={todo.id}>
+      {todos.map((todo,index) => <div key={todo.id}>
 
         {/* Conditional Rendering */}
 
-      {todoEditing == todo.id ?  
+      {todoEditing == todo.id && 
       (<input
         type="text" 
         onChange={(e) => setEditingText(e.target.value)}
-      value={editingText}
+      
       />)
-      : 
-      (<div>{todo.text}</div>)}
+      
+      }
+
+      <div>{todo.text}</div>
 
 
-          <input type="text" onChange={(e) => setEditingText(e.target.value)} value={editingText}/>
+          {/* <input type="text" onChange={(e) => setEditingText(e.target.value)} value={editingText}/> */}
+
         {/* Delete to do  */}
 
         <button onClick={() => deleteToDo(todo.id)}>Delete</button>
 
-        <input type="checkbox" onChange={() => toggleComplete(todo.id)}
+        <input type="checkbox" onChange={() => toggleComplete(index)}
         checked={todo.completed}/>
 
         {/* Editing to do functionality Buttons */}
