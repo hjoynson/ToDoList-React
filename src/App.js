@@ -46,6 +46,23 @@ function toggleComplete(id) {
 
 setTodos(updatedTodos)
 }
+
+// Todos saved and mapped over
+function editTodo(id){
+  const updatedTodos = [...todos].map((todo) => {
+    if(todo.id == id){
+      todo.text = editingText
+    }
+    return todo
+  })
+
+  // re-set editing logic
+  setTodos(updatedTodos)
+  setTodoEditing(null)
+  setEditingText("")
+}
+
+
   return (
     <div className="App">
 
@@ -86,8 +103,10 @@ setTodos(updatedTodos)
 
         {/* Editing to do functionality Buttons */}
 
-        <button onClick={() => setTodoEditing(todo.id)}>Edit To Do</button>
-        <button onClick={() => editTodo(todo.id)}>Submit Edits</button>
+        {todoEditing == todo.id ? (<button onClick={() => editTodo(todo.id)}
+        >Submit Edits</button>) : (
+        <button onClick={() => setTodoEditing(todo.id)}
+        >Edit Todo</button>)}
 
     </div>)}
     </div>
