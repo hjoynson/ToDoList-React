@@ -97,7 +97,7 @@ function editTodo(id){
 
         {/* Delete to do  */}
 
-        <button onClick={() => deleteToDo(todo.id)}>Delete</button>
+        <button onClick={() => deleteToDo(todo.id)}>DELETE</button>
 
         <input type="checkbox" onChange={() => toggleComplete(index)}
         checked={todo.completed}/>
@@ -107,7 +107,7 @@ function editTodo(id){
         {todoEditing == todo.id ? (<button onClick={() => editTodo(todo.id)}
         >Submit Edits</button>) : (
         <button onClick={() => setTodoEditing(todo.id)}
-        >Edit To-Do</button>)}
+        >EDIT TO-DO</button>)}
 
     </div>)}
     </div>
